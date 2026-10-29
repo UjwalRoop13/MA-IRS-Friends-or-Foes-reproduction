@@ -58,7 +58,7 @@ class Params:
     sigma2_dbm: float = -80.0
     rician_db: float = 3.0
     pl_exp: float = 2.8
-    d_iu: tuple = (30.0, 50.0)   # single-user runs use 30 m
+    d_iu: tuple = (30.0, 50.0)   
     snr_db: float | None = None  # Fig. 2 fixes P/sigma^2 = 110 dB
 
     @property
