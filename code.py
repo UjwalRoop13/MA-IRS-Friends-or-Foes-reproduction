@@ -52,7 +52,7 @@ class Params:
     N: int = 4
     My: int = 15
     Mz: int = 15
-    A: float = 0.6               # length of C_t in m
+    A: float = 0.6               
     K: int = 3
     P_dbm: float = 46.0
     sigma2_dbm: float = -80.0
