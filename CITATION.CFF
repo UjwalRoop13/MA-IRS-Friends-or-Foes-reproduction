@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite this independent reproduction."
+
+authors:
+  - family-names: "Roop"
+    given-names: "Ujwal"
+
+title: "Independent Python Reproduction of MA-IRS Friends-or-Foes"
+
+type: software
+
+version: "1.0.0"
+
+date-released: "2026-10-30"
+
+repository-code: "https://github.com/UjwalRoop13/MA-IRS-Friends-or-Foes-reproduction"
+
+abstract: >
+  Independent Python implementation and numerical reproduction
+  of the published research on Movable Antennas and Intelligent
+  Reflecting Surfaces. This software reproduces selected simulation
+  results and implements channel modeling, optimization algorithms,
+  and numerical validation.
+
+keywords:
+  - Movable Antennas
+  - Intelligent Reflecting Surfaces
+  - Wireless Communications
+  - Reproducible Research
+  - Python
