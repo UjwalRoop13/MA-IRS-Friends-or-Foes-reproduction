@@ -96,7 +96,7 @@ class Params:
         return self.P / self.sigma2
 
 def irs_elements(prm):
-    # UPA in the yOz plane centred at the origin, shape (M, 3)
+   
     my = (np.arange(prm.My) - (prm.My - 1) / 2) * prm.d_irs
     mz = (np.arange(prm.Mz) - (prm.Mz - 1) / 2) * prm.d_irs
     Y, Z = np.meshgrid(my, mz, indexing="ij")
@@ -111,13 +111,11 @@ AXIS = np.array([1.0, 0.0, 0.0])
 
 
 def offsets_fine(prm):
-    # candidate MA positions, spacing delta_s, endpoints included (101 pts)
     L = int(round(prm.A / prm.delta_s)) + 1
     return np.linspace(-prm.A / 2, prm.A / 2, L)
 
 
 def offsets_as(prm):
-    # antenna selection benchmark: A/Dmin = 20 fixed antennas
     n = int(round(prm.A / prm.Dmin))
     return (np.arange(n) - (n - 1) / 2) * prm.Dmin
 
@@ -127,7 +125,6 @@ def offsets_fpa(prm, N):
 
 
 def offset_eq13(prm, d_bi):
-    # Eq. (13): single MA goes to the point of C_t closest to the IRS
     u = -float(bs_centre(d_bi) @ AXIS)
     return float(np.clip(u, -prm.A / 2, prm.A / 2))
 
