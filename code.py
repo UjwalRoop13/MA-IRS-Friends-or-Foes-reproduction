@@ -134,7 +134,7 @@ def points_from_offsets(d_bi, off):
 
 
 def los_bi(points, E, lam):
-    # near-field (NUSW) LoS, Eq. (7)/(47), shape (M, n_points)
+    
     D = np.linalg.norm(points[None, :, :] - E[:, None, :], axis=2)
     return (lam / (4 * np.pi * D)) * np.exp(1j * 2 * np.pi * D / lam)
 
