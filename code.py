@@ -182,7 +182,6 @@ def iu_channel(prm, E, d_user, rng):
 
 
 def _g2(h_iu, phi):
-    # g2^H = h_IU^H Phi
     return np.conj(h_iu) * phi
 
 
@@ -294,7 +293,6 @@ def wmmse(H, P, sigma2, W0=None, iters=60, tol=1e-7):
             X = B / (ev[:, None] + mu + floor)
             return float(np.sum(np.abs(coef) ** 2 * np.sum(np.abs(X) ** 2, axis=0)))
 
-        # bisection on the power multiplier
         mu = 0.0
         if power(0.0) > P:
             lo, hi = 0.0, max(1e-12, ev.max())
@@ -348,11 +346,11 @@ def _f2_and_grad(phi, D, sigma2, want_grad=True):
 def manifold_cg(phi0, D, sigma2, iters=150, tol=1e-10):
     phi = phi0 / np.abs(phi0)
     f, g = _f2_and_grad(phi, D, sigma2)
-    rg = g - np.real(g * np.conj(phi)) * phi          # Riemannian grad (39)
+    rg = g - np.real(g * np.conj(phi)) * phi          
     eta = -rg
     gn2 = float(np.vdot(rg, rg).real)
     # first step: max phase change ~0.5 rad. after that start from 2x the
-    # last accepted step
+
     a_prev = 0.5 / max(np.abs(eta).max(), 1e-300)
     for _ in range(iters):
         if np.sqrt(gn2) <= tol:
