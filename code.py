@@ -316,7 +316,6 @@ def wmmse(H, P, sigma2, W0=None, iters=60, tol=1e-7):
 
 
 def sum_rate(F, sigma2):
-    # F[k, i] = h_k^H w_i
     p = np.abs(F) ** 2
     sig = np.diag(p)
     intf = p.sum(axis=1) - sig + sigma2
@@ -359,7 +358,7 @@ def manifold_cg(phi0, D, sigma2, iters=150, tol=1e-10):
         if slope >= 0:
             eta = -rg
             slope = -gn2
-        # Armijo backtracking + retraction (43)
+        #  backtracking + retraction (43)
         a = 2.0 * a_prev
         ok = False
         for _ in range(40):
